@@ -1,4 +1,3 @@
-
 // import React, { useEffect, useState } from "react";
 // import "./Home.css";
 // import { FaUserCircle } from "react-icons/fa";
@@ -99,6 +98,27 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
   const [mealOfTheDay, setMealOfTheDay] = useState({});
 
+  const handleCheckboxClick = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const checkbox = section.querySelector(".checkbox input");
+      if (checkbox) {
+        checkbox.checked = !checkbox.checked;
+  
+        // Add or remove the 'checked' class based on the checkbox state
+        const stepText = section.querySelector(".step p");
+        if (stepText) {
+          stepText.classList.toggle("checked", checkbox.checked);
+        }
+      }
+    }
+  };
+  
+
+
+  const isChecked = (id) => {
+    return false;
+  };
   useEffect(() => {
     // Fetch the user name from the backend (replace with your actual API call)
     // Example assuming an API endpoint /api/user
@@ -126,11 +146,32 @@ const Home = () => {
       .then((data) => setCategories(data.categories || []))
       .catch((error) => console.error("Error fetching categories:", error));
 
-    // Fetch meal of the day
     fetch("https://www.themealdb.com/api/json/v1/1/random.php")
       .then((response) => response.json())
-      .then((data) => setMealOfTheDay(data.meals[0] || {}))
-      .catch((error) => console.error("Error fetching meal of the day:", error));
+      .then((data) => {
+        const randomMeal = data.meals[0] || {};
+        setMealOfTheDay(randomMeal);
+
+        // Fetch ingredients and steps for the meal
+        fetch(
+          `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${randomMeal.idMeal}`
+        )
+          .then((response) => response.json())
+          .then((detailsData) => {
+            const details = detailsData.meals[0] || {};
+            setMealOfTheDay((prevMeal) => ({
+              ...prevMeal,
+              ingredients: details.ingredients,
+              steps: details.strInstructions,
+            }));
+          })
+          .catch((error) =>
+            console.error("Error fetching meal details:", error)
+          );
+      })
+      .catch((error) =>
+        console.error("Error fetching meal of the day:", error)
+      );
   }, []);
 
   return (
@@ -164,19 +205,93 @@ const Home = () => {
           ))}
         </div>
       </section>
-
-      <section className="meal-of-the-day">
-        <h2>Meal of the Day</h2>
+      {/* <section className="meal-of-the-day">
         <div className="meal-details">
           <img
             src={mealOfTheDay.strMealThumb}
             alt={mealOfTheDay.strMeal}
             className="meal-image"
           />
-          <h3>{mealOfTheDay.strMeal}</h3>
-          {/* Add more details about the meal */}
+          <div className="text-details">
+            <h2>Meal of the Day</h2>
+            <h3>{mealOfTheDay.strMeal}</h3>
+            <p>{mealOfTheDay.strCategory}</p>
+            <ul className="ingredients-list">
+              {mealOfTheDay.ingredients &&
+                mealOfTheDay.ingredients.map((ingredient, index) => (
+                  <li key={index}>{ingredient}</li>
+                ))}
+            </ul>
+          </div>
+          <div className="steps" id="stepsSection">
+            {mealOfTheDay.steps &&
+              mealOfTheDay.steps.split("\n").map((step, index) => (
+                <div key={index} className="step">
+                  <p>{step}</p>
+                  <div
+                    className="checkbox"
+                    onClick={() => handleCheckboxClick(`stepCheckbox-${index}`)}
+                  >
+                    <label>
+                      <input type="checkbox" id={`stepCheckbox-${index}`} />
+                      <span className="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
-      </section>
+      </section> */}
+
+<section className="meal-of-the-day">
+  <div className="meal-details">
+    <img
+      src={mealOfTheDay.strMealThumb}
+      alt={mealOfTheDay.strMeal}
+      className="meal-image"
+    />
+    <div className="text-details">
+      <h2>Meal of the Day</h2>
+      <h3>{mealOfTheDay.strMeal}</h3>
+      <p>{mealOfTheDay.strCategory}</p>
+      <ul className="ingredients-list">
+        {mealOfTheDay.ingredients &&
+          mealOfTheDay.ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+          ))}
+      </ul>
+    </div>
+    <div className="steps" id={`stepsSection-${mealOfTheDay.idMeal}`}>
+      {mealOfTheDay.steps &&
+        mealOfTheDay.steps.split("\n").map((step, index) => (
+          <div
+            key={index}
+            className={`step ${
+              isChecked(`stepCheckbox-${mealOfTheDay.idMeal}-${index}`)
+                ? "checked"
+                : ""
+            }`}
+          >
+            <p>{step}</p>
+            <div
+              className="checkbox"
+              onClick={() =>
+                handleCheckboxClick(`stepCheckbox-${mealOfTheDay.idMeal}-${index}`)
+              }
+            >
+              <label>
+                <input
+                  type="checkbox"
+                  id={`stepCheckbox-${mealOfTheDay.idMeal}-${index}`}
+                />
+                <span className="checkmark"></span>
+              </label>
+            </div>
+          </div>
+        ))}
+    </div>
+  </div>
+</section>
 
       <footer className="footer">
         <p>&copy; 2023 Yumify. All rights reserved.</p>
