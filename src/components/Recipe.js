@@ -8,7 +8,7 @@ const APP_ID = "b2b0bbec";
 const APP_KEY = "b664e2d371d0f19f906369740064ff38";
 const API_URL = "https://api.edamam.com/search";
 
-class Home extends Component {
+class recipe extends Component {
   state = {
     searchString: "",
     recipes: [],
@@ -139,4 +139,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default recipe

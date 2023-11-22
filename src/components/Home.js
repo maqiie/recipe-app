@@ -1,67 +1,70 @@
-import React, { Component } from "react";
+
+import React, { useEffect, useState } from "react";
 import "./Home.css";
-import { IoMdHome } from "react-icons/io";
-import { FaHeart } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 
-const APP_ID = "b2b0bbec";
-const APP_KEY = "b664e2d371d0f19f906369740064ff38";
-const url = " `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${APP_KEY}`,"
+const Home = () => {
+  const [userName, setUserName] = useState("");
+  const [timeOfDay, setTimeOfDay] = useState("");
 
+  useEffect(() => {
+    // Fetch the user name from the backend (replace with your actual API call)
+    // Example assuming an API endpoint /api/user
+    fetch("/api/user")
+      .then((response) => response.json())
+      .then((data) => setUserName(data.userName || "User"))
+      .catch((error) => {
+        console.error("Error fetching user name:", error);
+        setUserName("User");
+      });
 
-class Home extends Component {
-  render() {
-    return (
-      <div>
-        <div>
-          <section>
-            <nav>
-              <div class="button-container">
-                <button class="button">
-                <IoMdHome />
-                  
-                </button>
+    // Determine the time of day
+    const currentHour = new Date().getHours();
+    if (currentHour >= 5 && currentHour < 12) {
+      setTimeOfDay("morning");
+    } else if (currentHour >= 12 && currentHour < 18) {
+      setTimeOfDay("afternoon");
+    } else {
+      setTimeOfDay("evening");
+    }
+  }, []);
 
-                <button class="button">
-                  <input
-                    type="text"
-                    name="text"
-                    placeholder="Search 'Recipe'"
-                    class="input"
-                  ></input>
-                </button>
-
-                <button class="button">
-                <FaHeart />
-
-                </button>
-
-                <button class="button">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    stroke-linejoin="round"
-                    stroke-linecap="round"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    fill="none"
-                    stroke="currentColor"
-                    class="icon"
-                  >
-                    <circle r="1" cy="21" cx="9"></circle>
-                    <circle r="1" cy="21" cx="20"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                  </svg>
-                </button>
-              </div>
-            </nav>
-          </section>
-
+  return (
+    <div>
+      <section className="section-background">
+        <div className="profile-button">
+          <button className="button">
+            <FaUserCircle />
+          </button>
         </div>
 
-      </div>
-    );
+        <div className="welcome-message">
+          <p>
+            Welcome, <span className="username">{userName}!</span>
+            <br />
+            Ready to make {getTimeOfDayMessage(timeOfDay)}?
+          </p>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <p>&copy; 2023 Yumify. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+};
+
+const getTimeOfDayMessage = (timeOfDay) => {
+  switch (timeOfDay) {
+    case "morning":
+      return "breakfast";
+    case "afternoon":
+      return "lunch";
+    case "evening":
+      return "dinner";
+    default:
+      return "a meal";
   }
-}
+};
 
 export default Home;
