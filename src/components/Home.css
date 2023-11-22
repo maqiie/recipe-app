@@ -75,10 +75,108 @@
   width: 100%;
 }
 
-/* Media query for small screens */
-@media only screen and (max-width: 600px) {
-  .footer {
-    font-size: 14px; /* Adjust the font size for small screens */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* .card {
+  box-sizing: border-box;
+  width: 190px;
+  height: 254px;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+  margin: 10px;
+}
+
+.card:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+
+.card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+
+.category-image {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 15px;
+} */
+.category-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  box-sizing: border-box;
+  width: 190px;
+  height: 254px;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+  margin: 10px;
+}
+
+.card:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+
+.card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+
+.category-image {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+
+
+@media (min-width: 768px) {
+  .card-container {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .category-cards {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .category-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display three cards in each row */
+    gap: 16px; /* Add some gap between the cards */
   }
 }
 
@@ -96,5 +194,11 @@
 
   .profile-button {
     margin-bottom: 10px; /* Move the user icon to the top for small screens */
+  }
+  .footer {
+    font-size: 14px; /* Adjust the font size for small screens */
+  }
+  .category-cards {
+    grid-template-columns: repeat(2, 1fr); /* Display two cards in each row */
   }
 }
