@@ -1,325 +1,245 @@
+
+
 /* Home.css */
 
-/* Default styles */
-.section-background {
-  background-image: url('../assets/recipe.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  flex-direction: column; /* Stack the items vertically */
-  align-items: center; /* Center items on both large and small screens */
-  padding: 20px;
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5; /* Light gray background color */
+  color: #333; /* Dark text color */
+  min-height: 100vh; /* Set the body to full height of the viewport */
 }
 
-/* Home.css */
+.modern-home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh; /* Set the container to full height of the viewport */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* ... (Rest of your CSS) */
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50; /* Dark blue background color */
+  padding: 10px;
+  color: #ecf0f1; /* Light text color */
+}
+
+.profile-button {
+  margin-right: 10px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #ecf0f1; /* Light text color */
+  cursor: pointer;
+}
 
 .welcome-message {
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 20px;
-  text-align: center; /* Center the text */
-  font-weight: 600; /* Make the text bold */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle text shadow for depth */
-  letter-spacing: 1px; /* Increase letter spacing for readability */
-  line-height: 1.5; /* Increase line height for better vertical spacing */
+  text-align: right;
 }
+
 .username {
-  color: #ff4080; /* Change the color as needed */
-  font-weight: bold; /* Apply bold style to the username */
-  /* Add any other styles you want for the username */
+  font-weight: bold;
 }
 
-/* Add animation for a subtle effect */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.category-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.welcome-message p {
-  animation: fadeIn 1s ease-out; /* Apply the animation */
-}
 
-.profile-button button {
-  outline: 0 !important;
-  border: 0 !important;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: transparent;
-  color: #fff;
-  font-size: 30px;
-  transition: all ease-in-out 0.3s;
-  cursor: pointer;
-}
 
-.button:hover {
-  transform: translateY(-3px);
+h3 {
+  margin-top: 10px;
+  color: #ecf0f1; /* Light text color */
 }
 
 /* Home.css */
 
-/* Your existing styles */
-
-.footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-/* .card {
-  box-sizing: border-box;
-  width: 190px;
-  height: 254px;
-  background: rgba(217, 217, 217, 0.58);
-  border: 1px solid white;
-  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(6px);
-  border-radius: 17px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.5s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  font-weight: bolder;
-  color: black;
-  margin: 10px;
-}
-
-.card:hover {
-  border: 1px solid black;
-  transform: scale(1.05);
-}
-
-.card:active {
-  transform: scale(0.95) rotateZ(1.7deg);
-}
-
-.category-image {
-  width: 100%;
-  height: 80%;
-  object-fit: cover;
-  border-radius: 15px;
-} */
-.category-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.card {
-  box-sizing: border-box;
-  width: 190px;
-  height: 254px;
-  background: rgba(217, 217, 217, 0.58);
-  border: 1px solid white;
-  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(6px);
-  border-radius: 17px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.5s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  font-weight: bolder;
-  color: black;
-  margin: 10px;
-}
-
-.card:hover {
-  border: 1px solid black;
-  transform: scale(1.05);
-}
-
-.card:active {
-  transform: scale(0.95) rotateZ(1.7deg);
-}
-
-.category-image {
-  width: 100%;
-  height: 80%;
-  object-fit: cover;
-  border-radius: 15px;
-}
-/* <================meal of the day===========> */
-
+/* ... (Previous styles remain the same) */
 
 .meal-of-the-day {
-  margin: 20px 0;
+  margin-top: 20px;
+  background-color: #738f96; /* Light background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
 
 .meal-details {
   display: flex;
-  gap: 20px; /* Adjust the gap between the image and text details */
+  flex-wrap: wrap; /* Wrap items to the next line if they don't fit */
+  justify-content: space-between; /* Distribute items evenly */
 }
 
 .meal-image {
-  max-width: 100%; /* Ensure the image doesn't exceed its container */
-  border-radius: 10px; /* Add border-radius for a rounded appearance */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
-  margin-left: 20px;
-  margin-top: 10px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .text-details {
   flex: 1; /* Take remaining space */
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
-
-.ingredients-list,
-.steps {
-  margin-top: 0; /* Remove default margin for better alignment */
+h2 {
+  color: #3498db; /* Blue heading color */
 }
 
-/* Add more styling as needed */
+h3 {
+  color: #333; /* Dark text color */
+}
+
+.ingredients-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
 
 .ingredients-list li {
-  margin-bottom: 5px;
+  color: #333; /* Dark text color */
 }
 
 .steps {
-  margin-top: 15px;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  line-height: 1.5;
-  position: relative;
+  margin-top: 20px;
 }
 
 .step {
   display: flex;
   align-items: center;
-  margin-bottom: 10px; /* Adjust the spacing between steps */
-  border: #333;
-  border-radius: 0%;
-}
-.checkbox {
-  cursor: pointer;
+  margin-bottom: 10px;
 }
 
-.checkbox input {
-  display: none; /* Hide the default checkbox */
+.checkbox {
+  margin-left: auto;
 }
 
 .checkmark {
   display: inline-block;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  position: relative;
+  width: 16px;
+  height: 16px;
+  background-color: #27ae60; /* Green background color */
+  border-radius: 50%;
+  margin-left: 10px;
 }
 
-.checkbox input:checked + .checkmark:after {
-  content: '\2713'; /* Checkmark symbol */
-  font-size: 18px;
-  color: #333;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.checked .checkmark {
+  background-color: #2ecc71; /* Darker green background color */
 }
 
-.checkbox:hover .checkmark {
-  background-color: #ddd;
-}
-.step p.checked {
-  text-decoration: line-through;
-}
-
-
-/* Media query for medium screens (min-width: 768px) */
-@media (min-width: 768px) {
-  .card-container {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-
-  .category-cards {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-}
-
-/* Media query for small screens (max-width: 600px) */
-@media only screen and (max-width: 600px) {
-  /* General adjustments for small screens */
-  .section-background {
-    padding: 10px;
-  }
-
-  .welcome-message {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  .profile-button {
-    margin-bottom: 10px;
-  }
-
-  .footer {
-    font-size: 14px;
-  }
-
-  /* Category cards layout */
-  .category-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  /* Meal details adjustments */
+/* Responsive styles */
+@media (max-width: 767px) {
   .meal-details {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Stack items vertically on small screens */
   }
 
   .meal-image {
-    margin-left: 0;
-    margin-bottom: 10px;
+    max-width: 100%;
   }
 
   .text-details {
     margin-left: 0;
+    margin-top: 20px;
   }
+}
 
-  /* Steps section adjustments */
-  .steps {
-    margin-top: 15px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    line-height: 1.5;
-    position: relative;
-    width: 100%;
-  }
+/* ... (Other styles remain the same) */
 
-  .step {
-    margin-bottom: 10px;
-    border: #333;
-    border-radius: 0%;
+.text-details {
+  margin-left: 20px;
+}
+
+.ingredients-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.ingredients-list li {
+  color: #333; /* Dark text color */
+}
+
+.steps {
+  margin-top: 20px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox {
+  margin-left: auto;
+}
+
+.checkmark {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #27ae60; /* Green background color */
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.checked .checkmark {
+  background-color: #2ecc71; /* Darker green background color */
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  background-color: #34495e; /* Darker blue background color */
+  padding: 10px;
+  color: #ecf0f1; /* Light text color */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Additional styles can be added based on your design requirements */
+/* Home.css */
+
+/* ... (Previous styles remain the same) */
+
+.category-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card {
+  flex: 0 0 calc(33.333% - 20px);
+  box-sizing: border-box;
+  background-color: #ced0d1;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .card {
+    flex: 0 0 calc(50% - 20px);
   }
-} 
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex: 0 0 100%;
+  }
+}
