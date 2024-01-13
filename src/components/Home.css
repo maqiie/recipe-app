@@ -252,25 +252,22 @@
 }
 
 
+/* Media query for medium screens (min-width: 768px) */
 @media (min-width: 768px) {
   .card-container {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
+
   .category-cards {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
-  .category-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Display three cards in each row */
-    gap: 16px; /* Add some gap between the cards */
-  }
 }
 
-
-/* Media query for small screens */
+/* Media query for small screens (max-width: 600px) */
 @media only screen and (max-width: 600px) {
+  /* General adjustments for small screens */
   .section-background {
     padding: 10px;
   }
@@ -281,28 +278,35 @@
   }
 
   .profile-button {
-    margin-bottom: 10px; /* Move the user icon to the top for small screens */
+    margin-bottom: 10px;
   }
+
   .footer {
-    font-size: 14px; /* Adjust the font size for small screens */
+    font-size: 14px;
   }
+
+  /* Category cards layout */
   .category-cards {
-    grid-template-columns: repeat(2, 1fr); /* Display two cards in each row */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
+
+  /* Meal details adjustments */
   .meal-details {
-    flex-direction: column; /* Change to a single column layout */
-    align-items: center; /* Center align content */
+    flex-direction: column;
+    align-items: center;
   }
 
   .meal-image {
-    margin-left: 0; /* Remove left margin for image */
-    margin-bottom: 10px; /* Add some space below the image */
+    margin-left: 0;
+    margin-bottom: 10px;
   }
 
   .text-details {
-    margin-left: 0; /* Remove left margin for text details */
+    margin-left: 0;
   }
 
+  /* Steps section adjustments */
   .steps {
     margin-top: 15px;
     padding: 15px;
@@ -310,7 +314,7 @@
     border-radius: 8px;
     line-height: 1.5;
     position: relative;
-    width: 100%; /* Make the steps take full width */
+    width: 100%;
   }
 
   .step {
@@ -318,4 +322,4 @@
     border: #333;
     border-radius: 0%;
   }
-}
+} 
