@@ -1,0 +1,201 @@
+.cocktails-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .cocktails-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .cocktails-actions {
+    margin-bottom: 20px;
+  }
+  
+  .cocktails-actions form {
+    display: inline-block;
+  }
+  
+  .cocktails-actions input[type="text"],
+  .cocktails-actions button {
+    font-size: 1rem;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .cocktails-actions button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .cocktails-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .cocktail-item {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .cocktail-item:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+  
+  .cocktail-image {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .cocktail-name {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  .cocktail-category {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  /* Popup styles */
+/* Popup styles */
+.cocktail-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px); /* Glass blur effect */
+  }
+  
+  .cocktail-popup {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    width: 100%;
+    position: relative;
+  }
+  
+  .cocktail-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #555;
+    transition: color 0.3s ease;
+  }
+  
+  .cocktail-popup-close:hover {
+    color: #333;
+  }
+  
+  .cocktail-popup h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .cocktail-popup p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .cocktail-popup ul {
+    margin-bottom: 10px;
+  }
+  
+  .cocktail-popup ul li {
+    margin-bottom: 5px;
+  }
+  
+  .cocktail-popup button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cocktail-popup button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .cocktail-popup {
+      max-width: 90%;
+      padding: 15px;
+    }
+  
+    .cocktail-popup h2 {
+      font-size: 1.5rem;
+    }
+  
+    .cocktail-popup p {
+      font-size: 0.9rem;
+    }
+  
+    .cocktail-popup ul {
+      margin-bottom: 8px;
+    }
+  
+    .cocktail-popup ul li {
+      margin-bottom: 3px;
+    }
+  
+    .cocktail-popup button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  
+  /* Responsive styles */
+  @media screen and (max-width: 600px) {
+    .cocktails-container {
+      padding: 10px;
+    }
+  
+    .cocktails-title {
+      font-size: 20px;
+    }
+  
+    .cocktails-actions {
+      flex-wrap: wrap;
+    }
+  
+    .cocktails-actions input[type="text"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .cocktails-actions button {
+      margin-left: 0;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  
+    .cocktails-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-gap: 15px;
+    }
+  }
+  
