@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import "./Cocktails.css";
+import Navbar from "./Navbar";
 
 const Cocktails = () => {
   const [cocktails, setCocktails] = useState([]);
@@ -147,6 +148,8 @@ const Cocktails = () => {
 //   );
 return (
     <div className="cocktails-container">
+              <Navbar/>
+
       <h1 className="cocktails-title">Cocktails</h1>
       <div className="cocktails-actions">
         <form onSubmit={handleSearchSubmit}>

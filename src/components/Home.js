@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { FaUserCircle } from "react-icons/fa";
+import Navbar from "./Navbar";
 
 const Home = () => {
   const [userName, setUserName] = useState("");
@@ -76,7 +77,9 @@ const Home = () => {
 
   return (
     <div className="container">
-      <header className="header">
+            <Navbar />
+
+      {/* <header className="header">
         <a href="/" className="logo">
           Yumify
         </a>
@@ -97,7 +100,7 @@ const Home = () => {
           </a>
           
         </div>
-      </header>
+      </header> */}
 
       <section className="meal-of-the-day">
         <div className="meal-details">

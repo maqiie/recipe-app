@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './RecipeComponent.css'; // Import CSS file for styling
+import Navbar from './Navbar';
 
 const RecipeComponent = () => {
   const [recipeData, setRecipeData] = useState(null);
@@ -10,6 +11,8 @@ const RecipeComponent = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]); // State for search suggestions
   const [servings, setServings] = useState(1); // State for number of servings
+  const [nutritionData, setNutritionData] = useState(null); // State for nutrition data
+
 
   useEffect(() => {
     if (searchQuery.trim() === '') {
@@ -97,7 +100,23 @@ const RecipeComponent = () => {
         totalVitamins += (vitaminsPer100g / 100) * quantity * servings;
       });
     }
-
+    const fetchNutritionAnalysis = async (recipe) => {
+        try {
+          const response = await axios.post('https://api.edamam.com/api/nutrition-details', {
+            ingr: recipe.ingredientLines
+          }, {
+            headers: {
+              'Content-Type': 'application/json',
+              'app_id': '8832a539',
+              'app_key': '36dc8bf3a491f40bc00e058c8221b597	'
+            }
+          });
+          setNutritionData(response.data);
+        } catch (error) {
+          console.error('Error fetching nutrition analysis:', error);
+          setNutritionData(null);
+        }
+      };
     return { totalCalories, totalProteins, totalFats, totalCarbs, totalVitamins };
   };
 
@@ -105,6 +124,7 @@ const RecipeComponent = () => {
 
   return (
     <div className="recipe-container">
+        <Navbar/>
       <header>
         <h1>Recipe Search</h1>
       </header>
@@ -147,6 +167,14 @@ const RecipeComponent = () => {
               <li className="instruction">No instructions available</li>
             )}
           </ol>
+
+          {nutritionData && (
+        <div className="nutrition-info">
+          <h3>Nutrition Information</h3>
+          <p>Total Calories: {nutritionData.calories}</p>
+          {/* Display other nutrition information as needed */}
+        </div>
+      )}
           {/* Meal Calculator */}
           <div className="meal-calculator">
             <h3>Meal Calculator</h3>

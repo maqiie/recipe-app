@@ -4,6 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
+import Navbar from "./Navbar";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -118,6 +119,8 @@ const Login = () => {
   return (
     <div className="container1">
       <div className="card2">
+      <Navbar/>
+
         <a className="switch" onClick={handleSwitchClick}>
           Switch to <span className={isSignUp ? "login-text" : "signup-text"}>{isSignUp ? "Login" : "Sign Up"}</span>
         </a>
