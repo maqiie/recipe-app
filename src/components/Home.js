@@ -79,28 +79,7 @@ const Home = () => {
     <div className="container">
             <Navbar />
 
-      {/* <header className="header">
-        <a href="/" className="logo">
-          Yumify
-        </a>
-        <div className="links-container">
-          <a href="/cocktails" className="link">
-            Cocktails
-          </a>
-          <a href="/recipe" className="link">
-            Recipe
-          </a>
-        </div>
-        <div className="profile-button">
-          <a href="/login">
-          <button className="button">
-            <FaUserCircle />
-          </button>
 
-          </a>
-          
-        </div>
-      </header> */}
 
       <section className="meal-of-the-day">
         <div className="meal-details">
